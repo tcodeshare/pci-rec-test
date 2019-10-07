@@ -137,20 +137,6 @@
 #   https://libvirt.org/logging.html
 #   Defaults to undef
 #
-# [*rx_queue_size*]
-#   (optional) virtio-net rx queue size
-#   Valid values are 256, 512, 1024
-#   Defaults to $::os_service_default
-#
-# [*tx_queue_size*]
-#   (optional) virtio-net tx queue size
-#   Valid values are 256, 512, 1024
-#   Defaults to $::os_service_default
-#
-# [*file_backed_memory*]
-#   (optional) Available capacity in MiB for file-backed memory.
-#   Defaults to $::os_service_default
-#
 # [*volume_use_multipath*]
 #   (optional) Use multipath connection of the
 #   iSCSI or FC volume. Volumes can be connected in the
@@ -183,9 +169,6 @@ class nova::compute::libvirt (
   $preallocate_images                         = $::os_service_default,
   $manage_libvirt_services                    = true,
   $log_outputs                                = undef,
-  $rx_queue_size                              = $::os_service_default,
-  $tx_queue_size                              = $::os_service_default,
-  $file_backed_memory                         = undef,
   $volume_use_multipath                       = $::os_service_default,
 ) inherits nova::params {
 
@@ -266,9 +249,6 @@ class nova::compute::libvirt (
     'libvirt/hw_disk_discard':       value => $libvirt_hw_disk_discard;
     'libvirt/hw_machine_type':       value => $libvirt_hw_machine_type;
     'libvirt/enabled_perf_events':   value => join(any2array($libvirt_enabled_perf_events), ',');
-    'libvirt/rx_queue_size':         value => $rx_queue_size;
-    'libvirt/tx_queue_size':         value => $tx_queue_size;
-    'libvirt/file_backed_memory':    value => $file_backed_memory;
     'libvirt/volume_use_multipath':  value => $volume_use_multipath;
   }
 
