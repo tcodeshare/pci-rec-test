@@ -1,0 +1,8 @@
+#!/bin/sh
+
+WORKSPACE=$(readlink -f $(dirname $0))
+. "${WORKSPACE}"/openrc
+if [ -r "${WORKSPACE}"/secrets/openrc ] ; then
+  . "${WORKSPACE}"/secrets/openrc 1>/dev/null 2>&1 
+fi
+terraform destroy "${WORKSPACE}"
