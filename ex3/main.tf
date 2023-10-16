@@ -108,7 +108,11 @@ resource "null_resource" "provision" {
     private_key = file(local.private_key_filename)
   }
 
-  # Provision enginx
+  # Artificial sleep: TODO: Handle this in more robust way
+    provisioner "local-exec" {
+      command = "sleep 60"
+
+    }
 
     provisioner "local-exec" {
       command = "ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -u $USER -i '${openstack_networking_floatingip_v2.nginxnode.address},' --private-key $PRIVKEY $PLAYBOOK"
