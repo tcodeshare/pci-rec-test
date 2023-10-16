@@ -21,18 +21,18 @@ export OS_PASSWORD="REPLACE_ME"
 
 Simple run the script as follows. 
 
-Please examinate plan, once checked please approve apply
+Please review the Terraform plan, and once it's been checked, approve the apply.
+
 ```
 $ ./RUNME
 ```
-The script will pring command to execute to check Web server is up and running
+The script will generate a test using curl to check if the web server is operational and running.
 
 
 ## De-provisioning
 
-Please execute script over docker wrapper as follows.
 
-Please carefully check it and approve it once you are sure
+Please execute command and carefully examine the destroy plan before providing approval.
 
 ```
 $ ./DESTROYME
