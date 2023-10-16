@@ -1,8 +1,8 @@
 # Dependencies
 
 Ensure that your system meets the prerequisites:
-* terraform  v0.13.4
-* ansible
+* terraform  >= v0.13.4
+* ansible >= 2.10.8
 
 # Configuration
 
